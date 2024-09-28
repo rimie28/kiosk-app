@@ -11,10 +11,11 @@ const OrderedItems:React.FC<orderedItemsType> = ({items, deleteItem}) => {
         )
     }
 
+    const totalPrice = orderedItems.reduce((total, item) => total + item.price * item.count, 0);
 
     return (
         <div className="orderedItems">
-        {orderedItems.map((item) => (
+            {orderedItems.map((item) => (
                 <div className="orderedItem" key={item.id}>
                     <p>{item.name}</p>
                     <span className="count">х{item.count}</span>
@@ -22,8 +23,10 @@ const OrderedItems:React.FC<orderedItemsType> = ({items, deleteItem}) => {
                     <button className="deleteBtn" type='button' onClick={() => deleteItem(item.id)}>❌</button>
                 </div>
             ))
-        }
+            }
+            <div className="totalPrice">Total Price: {totalPrice} сом</div>
         </div>
-    )}
+    )
+}
 
 export default OrderedItems;
