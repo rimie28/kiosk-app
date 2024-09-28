@@ -1,4 +1,5 @@
 export type ItemsType = {
+    id: number;
     name: string;
     image: string;
     price: number;
@@ -8,5 +9,10 @@ export type ItemsType = {
 export type ItemButtonType = {
     item: ItemsType;
     key: number;
-    addItem: (name: string) => void;
+    addItem: (id: number) => void;
+}
+
+export type orderedItemsType = {
+    items: ItemsType[];
+    deleteItem: (id: number) => void;
 }
