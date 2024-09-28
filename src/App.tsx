@@ -1,34 +1,34 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {ItemsType} from "./types.ts";
+import plateImg from "./assets/plate.png";
+import drinkImg from "./assets/drink.jpg"
+import ItemButton from "./Buttons.tsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [items, setItems] = useState<ItemsType[]>([
+          {name: 'Hamburger', image: plateImg, price: 80, count: 0},
+          {name: 'Cheeseburger', image: plateImg, price: 100, count: 0},
+          {name: 'Fries', image: plateImg, price: 50, count: 0},
+          {name: 'Coffee', image: drinkImg, price: 120, count: 0},
+          {name: 'Tea', image: drinkImg, price: 50, count: 0},
+          {name: 'Cola', image: drinkImg, price: 70, count: 0},
+      ]
+  );
+
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="container">
+        <div className="orders">
+
+        </div>
+        <div className="items">
+            {items.map((item, i, addItem) => (
+                <ItemButton item={item} key={i} addItem={()=> addItem} />
+            ))}
+        </div>
+    </div>
   )
 }
 

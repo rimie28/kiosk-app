@@ -40,3 +40,28 @@
 .read-the-docs {
   color: #888;
 }
+
+.btnImg {
+  width: 70px;
+  height: 70px;
+}
+
+.btn {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  color: black;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background: lightblue;
+  padding: 30px;
+}
